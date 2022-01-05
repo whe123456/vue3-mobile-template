@@ -17,7 +17,7 @@
         "vant": "3",
         "vite-plugin-style-import": "^1.4.1",
         "vue": "^3.2.25",
-        "vue-router": "^3.5.3"
+        "vue-router": "4"
     },
     "devDependencies": {
         "@vitejs/plugin-vue": "^2.0.0",
