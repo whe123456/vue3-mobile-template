@@ -1,0 +1,21 @@
+// 指定了用来编译这个项目的根文件和编译选项
+// 配置参考https://www.tslang.cn/docs/handbook/tsconfig-json.html
+{
+    "compilerOptions": {
+        "target": "esnext",
+        "module": "esnext",
+        "strict": true, //这样可以对`this`上的数据属性进行严格的推断，否则总是被视为any类型
+        "jsx": "preserve",
+        "moduleResolution": "node",
+        "baseUrl": ".",
+        "types": ["node"],
+        "paths": {
+            "@/*": ["src/*"]
+        }
+    },
+    "include": [
+        "src/**/*",
+        "src/main.d.ts" //**/递归匹配任意子目录
+    ],
+    "exclude": ["node_modules"]
+}
