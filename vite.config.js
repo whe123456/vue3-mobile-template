@@ -2,6 +2,8 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import styleImport from 'vite-plugin-style-import'
 import postCssPxToRem from 'postcss-pxtorem'
+import viteSvgIcons from 'vite-plugin-svg-icons'
+import path from 'path'
 // https://vitejs.dev/config/
 export default defineConfig({
     // 配置前端服务地址和端口
@@ -30,6 +32,12 @@ export default defineConfig({
                     resolveStyle: (name) => `vant/es/${name}/style`,
                 },
             ],
+        }),
+        viteSvgIcons({
+            // 指定要缓存的图标文件夹
+            iconDirs: [path.resolve(process.cwd(), 'src/assets/icons')],
+            // 执行icon name的格式
+            symbolId: 'icon-[dir]-[name]',
         }),
     ],
     // 全局css
