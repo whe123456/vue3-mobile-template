@@ -13,6 +13,7 @@ const routes = [
         path: '/index',
         component: index,
         meta: {
+            title: 'xx',
             keepAlive: true, //设置页面是否需要使用缓存
         },
     },
@@ -26,12 +27,13 @@ const router = createRouter({
     // history: createWebHistory(),
     routes, // short for `routes: routes`
 
-    scrollBehavior(to, from, savedPosition) {
+    scrollBehavior() {
         // always scroll to top
         return { top: 0 }
     },
 })
-router.beforeEach((to, from, next) => {
+router.beforeEach((to: any, _from: any, next: () => void) => {
+    if (to.meta.title) document.title = to.meta.title
     next()
     document.body.scrollTop = 0
 })
