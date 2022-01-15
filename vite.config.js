@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import styleImport from 'vite-plugin-style-import'
-const path = require('path')
+import postCssPxToRem from 'postcss-pxtorem'
 // https://vitejs.dev/config/
 export default defineConfig({
     // 配置前端服务地址和端口
@@ -34,10 +34,18 @@ export default defineConfig({
     ],
     // 全局css
     css: {
+        postcss: {
+            plugins: [
+                postCssPxToRem({
+                    rootValue: 37.5,
+                    propList: ['*'],
+                }),
+            ],
+        },
         preprocessorOptions: {
             scss: {
                 // 全局的scss ，跨域放多个，例如：主题的变量，和一些混合等
-                additionalData: `@import "./src/assets/styles/common.scss";`,
+                additionalData: '@import "./src/assets/styles/common.scss";',
             },
         },
         sourceMap: false,
