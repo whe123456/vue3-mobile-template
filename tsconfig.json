@@ -2,6 +2,7 @@
 // 配置参考https://www.tslang.cn/docs/handbook/tsconfig-json.html
 {
     "compilerOptions": {
+        "allowSyntheticDefaultImports": true,
         "target": "esnext",
         "module": "esnext",
         "strict": true, //这样可以对`this`上的数据属性进行严格的推断，否则总是被视为any类型
