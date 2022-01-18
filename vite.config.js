@@ -16,6 +16,7 @@ export default defineConfig({
             strict: false,
         },
     },
+    base: './',
     resolve: {
         // https://vitejs.dev/config/#resolve-alias
         alias: {
